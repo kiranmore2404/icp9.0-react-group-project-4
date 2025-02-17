@@ -29,7 +29,7 @@ const Navbar = () => {
               Booking <ChevronDown className="ml-1" />
             </button>
             {dropdown === "booking" && (
-              <div className="absolute bg-white text-green-800 mt-2 w-48 shadow-lg rounded-lg">
+              <div className="absolute bg-white text-green-800 mt-5 w-48 shadow-lg rounded-lg">
                 <NavLink to="/booking" className="block px-4 py-2 text-lg hover:bg-gray-200">Book Ticket</NavLink>
                 <NavLink to="/passenger-details" className="block text-lg px-4 py-2 hover:bg-gray-200">Passenger Details</NavLink>
                 <NavLink to="/payment" className="block px-4 py-2 text-lg hover:bg-gray-200">Payment</NavLink>
@@ -44,7 +44,7 @@ const Navbar = () => {
               Admin Panel <ChevronDown className="ml-1" />
             </button>
             {dropdown === "admin" && (
-              <div className="absolute bg-white text-green-800 mt-2 w-44 shadow-lg rounded-lg">
+              <div className="absolute bg-white text-green-800 mt-5 w-44 shadow-lg rounded-lg">
                 <NavLink to="/manage-users" className="block px-4 py-2 text-lg hover:bg-gray-200">Manage Users</NavLink>
                 <NavLink to="/train-schedules" className="block px-4 py-2 text-lg hover:bg-gray-200">Train Schedules</NavLink>
               </div>
@@ -56,7 +56,7 @@ const Navbar = () => {
               Login <ChevronDown className="ml-1" />
             </button>
             {dropdown === "login" && (
-              <div className="absolute bg-white text-green-800 mt-2 w-48 shadow-lg rounded-lg">
+              <div className="absolute bg-white text-green-800 mt-5 w-48 shadow-lg rounded-lg">
                 <NavLink to="/login" className="block px-4 py-2 text-lg hover:bg-gray-200">Login</NavLink>
                 <NavLink to="/forgot-password" className="block text-lg px-4 py-2 hover:bg-gray-200">Forgot Password</NavLink>
                 <NavLink to="/register" className="block px-4 py-2 text-lg hover:bg-gray-200">Register</NavLink>
@@ -69,7 +69,7 @@ const Navbar = () => {
               Support <ChevronDown className="ml-1" />
             </button>
             {dropdown === "support" && (
-              <div className="absolute bg-white text-green-800 mt-2 w-40 shadow-lg rounded-lg">
+              <div className="absolute bg-white text-green-800 mt-5 w-30 shadow-lg rounded-lg">
                 <NavLink to="/support" className="block px-4 py-2 text-lg hover:bg-gray-200">Support</NavLink>
                 <NavLink to="/faqs" className="block px-4 py-2 text-lg hover:bg-gray-200">FAQs</NavLink>
               </div>
