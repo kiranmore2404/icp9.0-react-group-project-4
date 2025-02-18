@@ -82,7 +82,7 @@ const PNRStatus = () => {
     
       <div className="relative mt-10 hidden md:block">
         <TrainAnimation />
-        <div className="w-full h-1 bg-gray-700 mt-1"></div> 
+        <div className="w-full h-1 bg-gray-700 mt-2 mb-2"></div> 
       </div>
 
      
