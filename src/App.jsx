@@ -11,6 +11,7 @@ import Payment from "./views/Booking/Payment";
 import About from './views/About/About';
 import PrintTrainTicketPage from './views/Train/PrintTrainTickit';
 import CancelTrainTicketPage from './views/Train/CancelTrainTicket';
+import TrainRunningStatusPage from './views/Train/TrainRunningStatus';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/print-train-ticket" element={<PrintTrainTicketPage />} />
         <Route path="/cancel-train-ticket" element={<CancelTrainTicketPage />} />
+        <Route path="/train-running-status" element={<TrainRunningStatusPage />} />
       </Routes>
       <Footer />
     </Router>
