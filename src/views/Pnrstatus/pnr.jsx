@@ -49,7 +49,7 @@ const PNRStatus = () => {
 
    
       <div className=" flex-grow flex flex-col justify-center items-center px-4 md:px-8">
-        <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md sm:max-w-lg lg:max-w-xl text-center">
+        <div className="  mt-30 mb-10 sm:mb-0 sm:mt-0 bg-white shadow-lg rounded-lg p-6 w-full max-w-md sm:max-w-lg lg:max-w-xl text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-blue-800 mb-4">PNR Status</h2>
           <input
             type="text"
