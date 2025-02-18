@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import trainGif from "./../../assets/images/prntrakerimg/Trainimg.png";
+import trainGif from "./../../assets/images/Trainimg.png";
+
 
 const TrainAnimation = ({ speed = 6 }) => {
   const [trainX, setTrainX] = useState(0);

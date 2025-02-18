@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./../../components/Navbar";
-import Footer from "./../../components/Footer";
-import TrainAnimation from "./../../components/PRNTraker/TrainAnimation";
-import { passengers, trains } from "./../../data/data";
+
+import TrainAnimation from "./../../components/PntrStatus/Trainanimation";
+import { passengers, trains } from "./../../config/data";
 
 const PNRStatus = () => {
   const [pnr, setPnr] = useState("");
@@ -47,8 +47,8 @@ const PNRStatus = () => {
     <div className="relative min-h-screen flex flex-col">
       <Navbar />
 
-      {/* Main Container with Extra Margin for Small Screens */}
-      <div className="mt-20 flex-grow flex flex-col justify-center items-center px-4 md:px-8">
+   
+      <div className=" flex-grow flex flex-col justify-center items-center px-4 md:px-8">
         <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-md sm:max-w-lg lg:max-w-xl text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-blue-800 mb-4">PNR Status</h2>
           <input
@@ -79,13 +79,13 @@ const PNRStatus = () => {
         </div>
       </div>
 
-      {/* Train Animation (Hidden on Small Devices, Visible on Large Devices) */}
+    
       <div className="relative mt-10 hidden md:block">
         <TrainAnimation />
-        <div className="w-full h-1 bg-gray-700 mt-1"></div> {/* Track Line */}
+        <div className="w-full h-1 bg-gray-700 mt-1"></div> 
       </div>
 
-      <Footer className="mt-10" /> {/* Add margin-top to the Footer */}
+     
     </div>
   );
 };
