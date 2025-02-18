@@ -22,7 +22,20 @@ const Navbar = () => {
         </NavLink>
 
         <div className="hidden md:flex space-x-8">
-          <NavLink to="/train-explorer" className="hover:text-white">Train Explorer</NavLink>
+          <div className="relative">
+            <button onClick={() => toggleDropdown("train")} className="hover:text-white flex items-center">
+              Train <ChevronDown className="ml-1" />
+            </button>
+            {dropdown === "train" && (
+              <div className="absolute bg-white text-green-800 mt-5 w-50 shadow-lg rounded-lg">
+                <NavLink to="/train-explorer" className="block px-4 py-2 text-[17px] hover:bg-gray-200">Train Explorer</NavLink>
+                <NavLink to="/train-schedules" className="block text-[17px] px-4 py-2 hover:bg-gray-200">Train Schedules</NavLink>
+                <NavLink to="/train-running-status" className="block px-4 py-2 text-[17px] hover:bg-gray-200">Train Running Status</NavLink>
+                <NavLink to="/print-train-ticket" className="block px-4 py-2 text-[17px] hover:bg-gray-200">Print Train Ticket</NavLink>
+                <NavLink to="/cancel-train-ticket" className="block px-4 py-2 text-[17px] hover:bg-gray-200">Cancel Train Ticket</NavLink>
+              </div>
+            )}
+          </div>
 
           <div className="relative">
             <button onClick={() => toggleDropdown("booking")} className="hover:text-white flex items-center">
@@ -38,18 +51,6 @@ const Navbar = () => {
           </div>
 
           <NavLink to="/pnr-status" className="hover:text-white">PNR Status</NavLink>
-
-          <div className="relative">
-            <button onClick={() => toggleDropdown("admin")} className="hover:text-white flex items-center">
-              Admin Panel <ChevronDown className="ml-1" />
-            </button>
-            {dropdown === "admin" && (
-              <div className="absolute bg-white text-green-800 mt-5 w-44 shadow-lg rounded-lg">
-                <NavLink to="/manage-users" className="block px-4 py-2 text-lg hover:bg-gray-200">Manage Users</NavLink>
-                <NavLink to="/train-schedules" className="block px-4 py-2 text-lg hover:bg-gray-200">Train Schedules</NavLink>
-              </div>
-            )}
-          </div>
 
           <div className="relative">
             <button onClick={() => toggleDropdown("login")} className="hover:text-white flex items-center">

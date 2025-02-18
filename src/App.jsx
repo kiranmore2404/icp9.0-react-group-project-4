@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router";
 import Footer from "./components/Footer"; 
 import Navbar from "./components/Navbar"; 
 import Home from "./views/Home/Home";
-import TrainExplorer from "./views/TrainSearch/TrainExplorer";
-import TrainSchedule from "./views/TrainSchedule/TrainSchedule";
+import TrainExplorer from "./views/Train/TrainExplorer";
+import TrainSchedule from "./views/Train/TrainSchedule";
 import Booking from "./views/Booking/Booking";
 import PassengerDetails from "./views/Booking/PassengerDetail";
 import Payment from "./views/Booking/Payment";
 import About from './views/About/About';
+import PrintTrainTicketPage from './views/Train/PrintTrainTickit';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/passenger-details" element={<PassengerDetails />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/about" element={<About />} />
+        <Route path="/print-train-ticket" element={<PrintTrainTicketPage />} />
       </Routes>
       <Footer />
     </Router>
