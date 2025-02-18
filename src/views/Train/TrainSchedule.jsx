@@ -229,7 +229,7 @@ function Application() {
                 />
                 <button 
                     onClick={SearchTrain} 
-                    className="ml-2  p-3 bg-green-500 text-white rounded hover:bg-green-600 w-full md:w-full ml-auto mr-auto mt-5 mb-auto"
+                    className="p-3 bg-green-500 text-white rounded hover:bg-green-600 w-full md:w-full ml-auto mr-auto mt-5 mb-auto"
                 >
                     Search Train
                 </button>

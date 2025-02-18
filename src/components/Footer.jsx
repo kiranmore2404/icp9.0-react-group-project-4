@@ -22,9 +22,9 @@ const Footer = () => {
 
         <div className="flex flex-col mt-4 space-y-2.5">
             <p className="font-bold">Features</p>
-            <Link to="#" className="hover:text-gray-400">PNR Status</Link>
+            <Link to="/pnr-status" className="hover:text-gray-400">PNR Status</Link>
             <Link to="#" className="hover:text-gray-400">Train Running Status</Link>
-            <Link to="#" className="hover:text-gray-400">Train Schedule</Link>
+            <Link to="/train-schedules" className="hover:text-gray-400">Train Schedule</Link>
         </div>
 
         <div className="flex flex-col mt-4 space-y-2.5">
@@ -36,7 +36,7 @@ const Footer = () => {
         <div className="flex flex-col mt-4 space-y-2.5">
             <p className="font-bold">Legal</p>
             <Link to="#" className="hover:text-gray-400">Privacy Policy</Link>
-            <Link to="#" className="hover:text-gray-400">Terms of Conditions</Link>
+            <Link to="#" className="hover:text-gray-400">Terms and Conditions</Link>
         </div>
 
         <div className="flex flex-col mt-4 space-y-2.5">
