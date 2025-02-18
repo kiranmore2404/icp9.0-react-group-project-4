@@ -10,6 +10,7 @@ import PassengerDetails from "./views/Booking/PassengerDetail";
 import Payment from "./views/Booking/Payment";
 import About from './views/About/About';
 import PrintTrainTicketPage from './views/Train/PrintTrainTickit';
+import CancelTrainTicketPage from './views/Train/CancelTrainTicket';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/payment" element={<Payment />} />
         <Route path="/about" element={<About />} />
         <Route path="/print-train-ticket" element={<PrintTrainTicketPage />} />
+        <Route path="/cancel-train-ticket" element={<CancelTrainTicketPage />} />
       </Routes>
       <Footer />
     </Router>
