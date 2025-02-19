@@ -36,14 +36,13 @@ const carouselItems = [
 
 function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 3; // Default items per view
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? carouselItems.length - itemsPerView : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? carouselItems.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev >= carouselItems.length - itemsPerView ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev === carouselItems.length - 1 ? 0 : prev + 1));
   };
 
   // Auto-slide feature using useEffect
@@ -59,12 +58,12 @@ function Carousel() {
         {/* Carousel Items */}
         <div
           className="flex transition-transform duration-700 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {carouselItems.map((item, index) => (
             <div
               key={index}
-              className={`flex flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/${itemsPerView} p-6 ${item.bgColor} rounded-xl shadow-lg flex-col items-center justify-center text-center mx-2`}
+              className={`flex flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-6 ${item.bgColor} rounded-xl shadow-lg flex-col items-center justify-center text-center mx-2`}
             >
               <img src={item.img} alt="icon" className="w-16 h-16 mb-3" />
               <p className="text-base font-medium text-gray-700">
