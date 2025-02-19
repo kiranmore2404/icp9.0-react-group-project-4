@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router";
 import Footer from "./components/Footer"; 
 import Navbar from "./components/Navbar"; 
 import Home from "./views/Home/Home";
+import PNRStatus from './views/Pnrstatus/pnr';
 import TrainExplorer from "./views/Train/TrainExplorer";
 import TrainSchedule from "./views/Train/TrainSchedule";
 import Booking from "./views/Booking/Booking";
@@ -20,6 +21,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/train-explorer" element={<TrainExplorer />} />
+        <Route path="/pnr-status" element={<PNRStatus />} />
         <Route path="/train-schedules" element={<TrainSchedule />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/passenger-details" element={<PassengerDetails />} />
