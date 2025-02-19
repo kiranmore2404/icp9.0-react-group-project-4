@@ -1,5 +1,5 @@
 import React from "react";
-import Coursel from "../components/coursole";
+import Coursel from "../../components/coursole";
 
 const destinations = [
   {
