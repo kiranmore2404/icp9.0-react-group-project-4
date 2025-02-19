@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="flex flex-col mt-4 space-y-2.5">
             <p className="font-bold">About TrackGo</p>
             <Link to="/about" className="hover:text-gray-400">About Page</Link>
-            <Link to="#" className="hover:text-gray-400">Contact Us</Link>
+            <Link to="/contact" className="hover:text-gray-400">Contact Us</Link>
         </div>
 
         <div className="flex flex-col mt-4 space-y-2.5">

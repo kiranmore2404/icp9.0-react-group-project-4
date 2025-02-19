@@ -70,9 +70,9 @@ const Navbar = () => {
               Support <ChevronDown className="ml-1" />
             </button>
             {dropdown === "support" && (
-              <div className="absolute bg-white text-green-800 mt-5 w-30 shadow-lg rounded-lg">
+              <div className="absolute bg-white text-green-800 mt-5 w-35 shadow-lg rounded-lg">
+                <NavLink to="/contact" className="block px-4 py-2 text-lg hover:bg-gray-200">Contact Us</NavLink>
                 <NavLink to="/support" className="block px-4 py-2 text-lg hover:bg-gray-200">Support</NavLink>
-                <NavLink to="/faqs" className="block px-4 py-2 text-lg hover:bg-gray-200">FAQs</NavLink>
               </div>
             )}
           </div>
