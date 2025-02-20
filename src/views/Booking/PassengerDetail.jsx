@@ -34,19 +34,19 @@ export default function PassengerForm() {
         <div>
           <label className="block font-medium text-gray-700">Name</label>
           <input type="text" name="name" value={formData.name} onChange={handleChange} required
-            className="w-full p-2 border rounded-md text-gray-700" />
+            className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700" />
         </div>
 
         <div>
           <label className="block font-medium text-gray-700">Age</label>
           <input type="number" name="age" value={formData.age} onChange={handleChange} required
-            className="w-full p-2 border rounded-md text-gray-700" />
+            className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700" />
         </div>
 
         <div>
           <label className="block font-medium text-gray-700">Gender</label>
           <select name="gender" value={formData.gender} onChange={handleChange} required
-            className="w-full p-2 border rounded-md text-gray-700">
+            className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700">
             <option value="">Select</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
@@ -57,7 +57,7 @@ export default function PassengerForm() {
         <div>
           <label className="block font-medium text-gray-700">ID Proof</label>
           <input type="text" name="idProof" value={formData.idProof} onChange={handleChange} required
-            className="w-full p-2 border rounded-md text-gray-700" />
+            className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700" />
         </div>
 
         <div>
