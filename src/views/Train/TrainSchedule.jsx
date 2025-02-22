@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Background from "../../assets/images/bg7.jpg";
 
 const trainSchedule = [
     {
@@ -217,25 +218,32 @@ function Application() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-5">
-            <div className="mb-4 w-full max-w-md">
+        <div
+            className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${Background})`,
+            }}
+        >
+        <div className="flex flex-col items-center justify-center w-120 bg-slate-300 p-5">
+            <div className="mb-4 w-full ">
                 <input
                     type="text"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Enter Train Number"
-                    className="p-2 border border-gray-300 rounded w-full"
+                    className="p-2 border border-gray-500 outline-none focus:border-green-500 rounded w-full"
                     required
                 />
                 <button 
                     onClick={SearchTrain} 
-                    className="p-3 bg-green-500 text-white rounded hover:bg-green-600 w-full md:w-full ml-auto mr-auto mt-5 mb-auto"
+                    className="text-xl font-bold p-2 bg-green-600 text-white rounded hover:bg-green-700 w-full md:w-full ml-auto mr-auto mt-5 mb-auto"
                 >
                     Search Train
                 </button>
             </div>
             
             {renderTrainInfo()}
+        </div>
         </div>
     );
 }
