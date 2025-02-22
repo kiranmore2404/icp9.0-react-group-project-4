@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./../../components/Navbar";
+import Background from "../../assets/images/bg7.jpg";
 
 import TrainAnimation from "./../../components/PntrStatus/Trainanimation";
 import { passengers, trains } from "./../../config/data";
@@ -44,10 +44,12 @@ const PNRStatus = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col">
-      <Navbar />
-
-   
+    <div
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${Background})`,
+        }}
+    >
       <div className=" flex-grow flex flex-col justify-center items-center px-4 md:px-8">
         <div className="  mt-30 mb-10 sm:mb-0 sm:mt-0 bg-white shadow-lg rounded-lg p-6 w-full max-w-md sm:max-w-lg lg:max-w-xl text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-blue-800 mb-4">PNR Status</h2>

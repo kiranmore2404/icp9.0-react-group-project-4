@@ -1,8 +1,15 @@
 import React from "react";
+import Background from "../../assets/images/bg7.jpg";
 
 const About = () => {
   return (
-    <div className="p-6 w-[80%] mx-auto text-justify mt-20">
+    <div
+            className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${Background})`,
+            }}
+    >
+    <div className="p-6 w-[80%] mx-auto text-justify mt-30 mb-10 bg-slate-200">
       <h1 className="text-3xl font-bold text-center mb-6 text-green-800">About Us</h1>
 
       <section className="mb-6">
@@ -83,6 +90,7 @@ const About = () => {
       <p className="text-center text-gray-600 mt-6">
         Book your train tickets easily with us and experience a hassle-free journey!
       </p>
+    </div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Background from "../../assets/images/bg7.jpg";
 
 const TrainRunningStatusPage = () => {
   const [trainDetails, setTrainDetails] = useState({
@@ -37,7 +38,13 @@ const TrainRunningStatusPage = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-30 mb-10">
+    <div
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${Background})`,
+        }}
+    >
+    <div className="w-120 mx-auto p-6 bg-slate-300 rounded-lg shadow-md mt-30 mb-10">
       <h1 className="text-3xl font-bold text-center text-green-700 mb-6">Train Running Status</h1>
       
       <form className="space-y-4 mb-6">
@@ -49,7 +56,7 @@ const TrainRunningStatusPage = () => {
             placeholder="Enter Train Number"
             value={trainDetails.trainNumber}
             onChange={handleChange}
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-gray-500 rounded-md"
           />
         </div>
 
@@ -60,7 +67,7 @@ const TrainRunningStatusPage = () => {
             type="date"
             value={trainDetails.date}
             onChange={handleChange}
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+            className="mt-1 block w-full px-4 py-2 border border-gray-500 rounded-md"
           />
         </div>
 
@@ -87,6 +94,7 @@ const TrainRunningStatusPage = () => {
           </p>
         </>
       )}
+    </div>
     </div>
   );
 };

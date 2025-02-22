@@ -14,6 +14,10 @@ import PrintTrainTicketPage from './views/Train/PrintTrainTickit';
 import CancelTrainTicketPage from './views/Train/CancelTrainTicket';
 import TrainRunningStatusPage from './views/Train/TrainRunningStatus';
 import Support from './views/Support/SupportView';
+import ContactPage from './views/Contact/Contact';
+import Login from './views/Authentication/Login';
+import Register from './views/Authentication/Register';
+import Forgotpassword from './views/Authentication/Forgotpassword';
 
 const App = () => {
   return (
@@ -32,6 +36,10 @@ const App = () => {
         <Route path="/cancel-train-ticket" element={<CancelTrainTicketPage />} />
         <Route path="/train-running-status" element={<TrainRunningStatusPage />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<Forgotpassword />} />
       </Routes>
       <Footer />
     </Router>

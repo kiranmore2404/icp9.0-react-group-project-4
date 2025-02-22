@@ -7,9 +7,8 @@ import twitter from "./../assets/images/twitter.png"
 
 const Footer = () => {
   return (
-    <footer className="bg-[#73db73] text-green-800 py-8">
+    <footer className="bg-green-200 text-green-900 py-8">
       <div className="container mx-auto flex md:flex-row flex-wrap md:w-[80%] mb-10 md:space-x-15 space-x-7  pl-10 sm:space-y-10">
-
         <div className="flex flex-col items-center md:w-[30%] w-[80%] my-auto ">
             <div className="flex font-bold">
                 <TramFront size={30}/>
@@ -30,7 +29,7 @@ const Footer = () => {
         <div className="flex flex-col mt-4 space-y-2.5">
             <p className="font-bold">About TrackGo</p>
             <Link to="/about" className="hover:text-gray-400">About Page</Link>
-            <Link to="#" className="hover:text-gray-400">Contact Us</Link>
+            <Link to="/contact" className="hover:text-gray-400">Contact Us</Link>
         </div>
 
         <div className="flex flex-col mt-4 space-y-2.5">
