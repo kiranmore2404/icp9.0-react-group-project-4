@@ -18,7 +18,7 @@ const Payment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toast.success("Payment Successful.");
+    toast.success("Payment Successfull.");
   };
 
   return ( 
