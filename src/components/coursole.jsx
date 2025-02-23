@@ -48,9 +48,11 @@ function Carousel() {
           {carouselItems.map((item, index) => (
             <div
               key={index}
-              className="flex flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-3 rounded-xl shadow-lg mx-1"
+              className="flex flex-shrink-0 w-full sm:w-full md:w-full lg:w-full p-3 rounded-xl shadow-lg flex-col items-center justify-center text-center mx-1"
             >
-              <img src={item.img} alt="icon" className="w-full h-auto object-contain" />
+              <div className="w-full h-32 flex items-center justify-center mb-1.5">
+                <img src={item.img} alt="icon" className="w-4/5 h-4/5 object-contain" />
+              </div>
             </div>
           ))}
         </div>
@@ -80,3 +82,5 @@ function Carousel() {
 }
 
 export default Carousel;
+
+
