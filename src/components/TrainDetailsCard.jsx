@@ -2,12 +2,16 @@ import React from "react";
 import Button from "./Button";
 import { Link } from "react-router"; 
 
+const handleClick = () => {
+  navigate("/booking"); 
+};
+
 const TrainDetailsCard = ({ train }) => {
   const { id, name, number, type, departure, arrival, duration, price, availability, image } = train;
 
   return (
     <Link to={`train-detail/${id}`}>
-      <div className="bg-white shadow-md rounded-xl p-4 w-[400px] h-[480px] hover:scale-105 transition-transform border border-gray-300">
+      <div className="bg-white shadow-md rounded-xl p-4 md:w-[400px] md:h-[480px] w-[300px] h-[390px] hover:scale-105 transition-transform border border-gray-300">
         <img 
             src={image} 
             alt={name} 
@@ -36,7 +40,7 @@ const TrainDetailsCard = ({ train }) => {
         </p>
 
         <div className="flex justify-center pt-5">
-          <Button text="Book Now" />
+          <Button text="Book Now" onClick={handleClick} />
         </div>
       </div>
     </Link>
