@@ -105,13 +105,13 @@ const Home = () => {
     <div className="font-poppins bg-gray-50">
       <WelcomeSection />
       <div className="container mx-auto px-4 mb-12">
-        <img src="/src/components/coursole/main-image.webp" alt="image" className="w-full h-auto object-cover mb-8" />
+        <img src="/src/components/coursole/main-image.webp" alt="image" className="w-full h-auto object-cover rounded-lg shadow-lg mb-8" />
       </div>
       <Coursel className="mb-12" />
-      <div>
+      <div className="container mx-auto px-4 mb-12">
         <AccountManagement />
       </div>
-      <div>
+      <div className="container mx-auto px-4 mb-12">
         <TrainFareTicketFareSection />
       </div>
       <div className="container mx-auto p-4 mb-12">
