@@ -2,21 +2,11 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const carouselItems = [
-  {
-    img: "/src/components/coursole/Refund.webp",
-  },
-  {
-    img: "/src/components/coursole/free-Cancilation.webp",
-  },
-  {
-    img: "/src/components/coursole/IRCTC-partner.webp",
-  },
-  {
-    img: "/src/components/coursole/customer-support.jpg",
-  },
-  {
-    img: "/src/components/coursole/Lowest-fair.webp",
-  },
+  { img: "/src/components/coursole/Refund.webp" },
+  { img: "/src/components/coursole/free-Cancilation.webp" },
+  { img: "/src/components/coursole/IRCTC-partner.webp" },
+  { img: "/src/components/coursole/customer-support.jpg" },
+  { img: "/src/components/coursole/Lowest-fair.webp" },
 ];
 
 function Carousel() {
@@ -40,7 +30,6 @@ function Carousel() {
     <div className="w-full flex flex-col items-center py-3">
       <h2 className="text-xl font-bold mb-3 text-gray-800">Why Book With Track and Go?</h2>
       <div className="relative w-full max-w-5xl overflow-hidden">
-        {/* Carousel Items */}
         <div
           className="flex transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -48,7 +37,7 @@ function Carousel() {
           {carouselItems.map((item, index) => (
             <div
               key={index}
-              className="flex flex-shrink-0 w-full sm:w-full md:w-full lg:w-full p-3 rounded-xl shadow-lg flex-col items-center justify-center text-center mx-1"
+              className="flex flex-shrink-0 w-full p-3 rounded-xl shadow-lg flex-col items-center justify-center text-center mx-1"
             >
               <div className="w-full h-32 flex items-center justify-center mb-1.5">
                 <img src={item.img} alt="icon" className="w-4/5 h-4/5 object-contain" />
@@ -58,7 +47,6 @@ function Carousel() {
         </div>
       </div>
 
-      {/* Navigation Buttons */}
       <div className="flex mt-3 space-x-3">
         <button onClick={prevSlide} className="p-1.5 bg-gray-300 rounded-full hover:bg-gray-400 transition">
           <ChevronLeft size={16} />
@@ -68,7 +56,6 @@ function Carousel() {
         </button>
       </div>
 
-      {/* Dots Navigation */}
       <div className="flex mt-2 space-x-1">
         {carouselItems.map((_, index) => (
           <div
@@ -82,5 +69,6 @@ function Carousel() {
 }
 
 export default Carousel;
+
 
 
