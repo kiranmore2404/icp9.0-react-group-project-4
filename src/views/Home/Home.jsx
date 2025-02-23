@@ -1,5 +1,6 @@
 import Coursel from "../../components/coursole";
 import TrainFareTicketFareSection from "../../components/trainFair";
+import AccountManagement from "../../components/instruction";
 
 const destinations = [
   {
@@ -107,6 +108,9 @@ const Home = () => {
         <img src="/src/components/coursole/main-image.webp" alt="image" className="w-full h-auto object-cover mb-8" />
       </div>
       <Coursel className="mb-12" />
+      <div>
+        <AccountManagement />
+      </div>
       <div>
         <TrainFareTicketFareSection />
       </div>
