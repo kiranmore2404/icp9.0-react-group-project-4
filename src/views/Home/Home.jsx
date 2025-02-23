@@ -1,7 +1,5 @@
-
 import Coursel from "../../components/coursole";
 import TrainFareTicketFareSection from "../../components/trainFair";
-
 
 const destinations = [
   {
@@ -48,8 +46,6 @@ const destinations = [
   },
 ];
 
-
-
 const DestinationCard = ({ destination }) => {
   return (
     <a href={destination.url} target="_blank" rel="noopener noreferrer" className="block">
@@ -79,7 +75,6 @@ const WelcomeSection = () => {
         <p className="text-base md:text-lg lg:text-xl mb-6">
           Your one-stop solution for all your travel needs. Plan, book, and manage your trips with ease.
         </p>
-    
       </div>
     </section>
   );
@@ -107,14 +102,14 @@ const AboutSection = () => {
 const Home = () => {
   return (
     <div className="font-poppins bg-gray-50">
-
- <WelcomeSection />
-      <img src="/src/components/coursole/main-image.webp" alt="image" />
+      <WelcomeSection />
+      <div className="container mx-auto px-4 mb-12">
+        <img src="/src/components/coursole/main-image.webp" alt="image" className="w-full h-auto object-cover mb-8" />
+      </div>
       <Coursel className="mb-12" />
-
       <div>
-          <TrainFareTicketFareSection />
-        </div>
+        <TrainFareTicketFareSection />
+      </div>
       <div className="container mx-auto p-4 mb-12">
         <h1 className="text-3xl font-semibold mb-4">Popular Destinations</h1>
         <div className="flex flex-wrap justify-around -mx-4 -mb-4">
