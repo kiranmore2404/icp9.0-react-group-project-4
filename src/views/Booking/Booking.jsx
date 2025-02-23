@@ -103,8 +103,8 @@ export default function Booking() {
       className="min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{ backgroundImage: `url(${Background})` }}
     >
-      <div className="w-120 mx-auto bg-slate-300 p-6 m-10 mt-25 rounded-lg shadow-lg border border-gray-300">
-        <h2 className="text-3xl font-bold mb-4 text-center text-green-700">
+      <div className="md:w-120 lg:w-120 w-80 mx-auto bg-slate-300 p-6 md:m-10 md:mt-25 md:mb-10 mt-20 mb-10 rounded-lg shadow-lg border border-gray-300">
+        <h2 className="md:text-3xl text-2xl font-bold mb-4 text-center text-green-700">
           BOOK TICKET
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">

@@ -12,7 +12,6 @@ import Payment from "./views/Booking/Payment";
 import About from './views/About/About';
 import PrintTrainTicketPage from './views/Train/PrintTrainTickit';
 import CancelTrainTicketPage from './views/Train/CancelTrainTicket';
-import TrainRunningStatusPage from './views/Train/TrainRunningStatus';
 import Support from './views/Support/SupportView';
 import ContactPage from './views/Contact/Contact';
 import Login from './views/Authentication/Login';
@@ -36,7 +35,6 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/print-train-ticket" element={<PrintTrainTicketPage />} />
         <Route path="/cancel-train-ticket" element={<CancelTrainTicketPage />} />
-        <Route path="/train-running-status" element={<TrainRunningStatusPage />} />
         <Route path="/support" element={<Support />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<Login />} />

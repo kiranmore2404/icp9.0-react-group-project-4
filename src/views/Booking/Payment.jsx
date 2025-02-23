@@ -33,9 +33,9 @@ const Payment = () => {
         backgroundImage: `url(${Background})`,
       }}
     >
-      <div className="w-120 mx-auto bg-slate-300 p-6 m-10 mt-25 rounded-lg shadow-lg border border-gray-300">
-        <h2 className="text-3xl text-green-700 text-center font-bold mb-4">
-          TRAIN TICKET PAYMENT
+      <div className="md:w-120 w-80 mx-auto bg-slate-300 p-6 m-10 mt-25 rounded-lg shadow-lg border border-gray-300">
+        <h2 className="md:text-3xl text-2xl text-green-700 text-center font-bold mb-4">
+           PAYMENT
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <p className="text-lg font-bold text-green-800 text-center">

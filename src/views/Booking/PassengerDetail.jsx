@@ -28,8 +28,8 @@ export default function PassengerForm() {
           backgroundImage: `url(${Background})`,
         }}
     >
-    <div className="w-120 mx-auto bg-slate-300 p-6 m-10 mt-25 rounded-lg shadow-lg border border-gray-300">
-      <h2 className="text-3xl text-green-700 font-bold text-center mb-4">PASSENGER DETAILS</h2>
+    <div className="md:w-120 w-80 mx-auto bg-slate-300 p-6 m-10 mt-25 rounded-lg shadow-lg border border-gray-300">
+      <h2 className="md:text-3xl text-2xl text-green-700 font-bold text-center mb-4">PASSENGER DETAILS</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block font-medium text-gray-700">Name</label>
