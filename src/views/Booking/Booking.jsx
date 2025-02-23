@@ -1,41 +1,101 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
 import Background from "../../assets/images/bg1.jpg";
 
 export default function Booking() {
-  const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams(); 
 
-  const trainName = queryParams.get("train") || "";
-  const fromStation = queryParams.get("from") || "Not Specified";
-  const toStation = queryParams.get("to") || "Not Specified";
-  const rawPrice = queryParams.get("price") || "0";
-  const initialPrice = parseFloat(rawPrice.replace(/[^\d.]/g, "")) || 0;
+  const trainData = {
+    "Express Train": {
+      stations: ["Mumbai", "Pune", "Nagpur", "Bangalore"],
+      prices: {
+        "Mumbai-Pune": 500,
+        "Pune-Nagpur": 800,
+        "Nagpur-Bangalore": 1200,
+      },
+    },
+    "Superfast Express": {
+      stations: ["Delhi", "Agra", "Jaipur", "Udaipur"],
+      prices: {
+        "Delhi-Agra": 400,
+        "Agra-Jaipur": 700,
+        "Jaipur-Udaipur": 1100,
+      },
+    },
+  };
+
+  const [selectedTrain, setSelectedTrain] = useState("");
+  const [availableStations, setAvailableStations] = useState([]);
+  const [priceList, setPriceList] = useState({});
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const [formData, setFormData] = useState({
     passengername: "",
-    from: fromStation,
-    to: toStation,
+    from: "",
+    to: "",
     date: "",
     passengers: 1,
-    price: initialPrice,
     class: "Economy",
   });
 
-  const [totalPrice, setTotalPrice] = useState(initialPrice);
+  useEffect(() => {
+    const train = searchParams.get("train") || "";
+    const from = searchParams.get("from") || "";
+    const to = searchParams.get("to") || "";
+    const rawPrice = searchParams.get("price");
+    const price = rawPrice ? parseFloat(rawPrice.replace(/[^0-9.]/g, "")) : 0;
+  
+    if (train && trainData[train]) {
+      setSelectedTrain(train);
+      setAvailableStations(trainData[train].stations);
+      setPriceList(trainData[train].prices);
+    }
+  
+    setFormData((prev) => ({
+      ...prev,
+      from: from || prev.from,
+      to: to || prev.to,
+    }));
+  
+    setTotalPrice(price);
+  }, [searchParams]); 
+
+  const handleTrainChange = (e) => {
+    const train = e.target.value;
+    setSelectedTrain(train);
+    setAvailableStations(trainData[train]?.stations || []);
+    setPriceList(trainData[train]?.prices || {});
+    setFormData((prev) => ({ ...prev, from: "", to: "" })); 
+  };
 
   useEffect(() => {
-    setTotalPrice(formData.price * formData.passengers);
-  }, [formData.passengers, formData.price]);
+    const routeKey = `${formData.from}-${formData.to}`;
+    const routePrice = priceList[routeKey] || 0;
+    setTotalPrice(routePrice * formData.passengers);
+  }, [formData.from, formData.to, formData.passengers]);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+      ...(name === "from" ? { to: "" } : {}),
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toast.success("Booking Confirmed.");
+    if (!selectedTrain) {
+      toast.error("Please select a train.");
+      return;
+    }
+    if (!formData.from || !formData.to) {
+      toast.error("Please select both From and To stations.");
+      return;
+    }
+    navigate("/payment", { state: { price: totalPrice } });
   };
 
   return (
@@ -49,14 +109,22 @@ export default function Booking() {
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block font-medium text-gray-700">Train</label>
-            <input
-              type="text"
-              value={trainName}
-              readOnly
-              className="w-full p-2 border border-gray-500 outline-none bg-gray-200 rounded-md text-gray-700"
-            />
+            <label className="block font-medium text-gray-700">Select Train</label>
+            <select
+              value={selectedTrain}
+              onChange={handleTrainChange}
+              required
+              className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700"
+            >
+              <option value="">Select Train</option>
+              {Object.keys(trainData).map((train) => (
+                <option key={train} value={train}>
+                  {train}
+                </option>
+              ))}
+            </select>
           </div>
+
           <div>
             <label className="block font-medium text-gray-700">Passenger Name</label>
             <input
@@ -68,26 +136,48 @@ export default function Booking() {
               className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700"
             />
           </div>
+
           <div>
             <label className="block font-medium text-gray-700">From</label>
-            <input
-              type="text"
+            <select
               name="from"
               value={formData.from}
-              readOnly
-              className="w-full p-2 border border-gray-500 outline-none bg-gray-200 rounded-md text-gray-700"
-            />
+              onChange={handleChange}
+              required
+              className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700"
+              disabled={!selectedTrain}
+            >
+              <option value="">Select Station</option>
+              {availableStations.map((station) => (
+                <option key={station} value={station}>
+                  {station}
+                </option>
+              ))}
+            </select>
           </div>
+
           <div>
             <label className="block font-medium text-gray-700">To</label>
-            <input
-              type="text"
+            <select
               name="to"
               value={formData.to}
-              readOnly
-              className="w-full p-2 border border-gray-500 outline-none bg-gray-200 rounded-md text-gray-700"
-            />
+              onChange={handleChange}
+              required
+              className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700"
+              disabled={!formData.from}
+            >
+              <option value="">Select Station</option>
+              {formData.from &&
+                availableStations
+                  .filter((station) => station !== formData.from)
+                  .map((station) => (
+                    <option key={station} value={station}>
+                      {station}
+                    </option>
+                  ))}
+            </select>
           </div>
+
           <div>
             <label className="block font-medium text-gray-700">Date</label>
             <input
@@ -99,6 +189,7 @@ export default function Booking() {
               className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700"
             />
           </div>
+
           <div>
             <label className="block font-medium text-gray-700">Passengers</label>
             <input
