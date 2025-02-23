@@ -42,7 +42,6 @@ const Navbar = () => {
             {dropdown === "booking" && (
               <div className="absolute bg-green-200 text-green-700 mt-5 w-50 shadow-lg ">
                 <NavLink to="/booking" className="block px-4 py-2 text-lg hover:bg-green-300">Book Ticket</NavLink>
-                <NavLink to="/passenger-details" className="block text-lg px-4 py-2 hover:bg-green-300">Passenger Details</NavLink>
                 <NavLink to="/payment" className="block px-4 py-2 text-lg hover:bg-green-300">Payment</NavLink>
               </div>
             )}
@@ -105,7 +104,6 @@ const Navbar = () => {
             {dropdown === "bookingMobile" && (
               <div className="absolute bg-green-200 text-green-800 mt-2 w-48 shadow-lg rounded-lg">
                 <NavLink to="/booking" className="block px-4 py-1 text-lg hover:bg-gray-200">Book Ticket</NavLink>
-                <NavLink to="/passenger-details" className="block text-lg px-4 py-1 hover:bg-gray-200">Passenger Details</NavLink>
                 <NavLink to="/payment" className="block px-4 py-1 text-lg hover:bg-gray-200">Payment</NavLink>
               </div>
             )}

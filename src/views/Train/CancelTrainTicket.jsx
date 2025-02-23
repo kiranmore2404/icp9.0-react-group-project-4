@@ -40,6 +40,7 @@ const CancelTrainTicketPage = () => {
           <input
             id="bookingId"
             type="text"
+            name="bookingId"
             placeholder="Enter Booking ID"
             value={ticketDetails.bookingId}
             onChange={handleChange}
@@ -50,6 +51,7 @@ const CancelTrainTicketPage = () => {
           <label className="block text-lg font-medium text-gray-600">Reason for Cancellation</label>
           <textarea
             id="cancelReason"
+            name="cancelReason"
             placeholder="Enter cancellation reason"
             value={ticketDetails.cancelReason}
             onChange={handleChange}

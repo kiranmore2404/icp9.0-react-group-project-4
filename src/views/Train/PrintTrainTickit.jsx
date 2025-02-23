@@ -37,9 +37,10 @@ const PrintTrainTicketPage = () => {
       <h1 className="md:text-3xl text-2xl font-bold text-center text-green-700 mb-6">Print Train Ticket</h1>
       <form className="space-y-4">
         <div>
-          <label className="block text-lg font-medium text-gray-600" >Booking ID</label>
+          <label className="block text-lg font-medium text-gray-600">Booking ID</label>
           <input
             id="bookingId"
+            name="bookingId" 
             type="text"
             placeholder="Enter Booking ID"
             value={ticketDetails.bookingId}
@@ -51,6 +52,7 @@ const PrintTrainTicketPage = () => {
           <label className="block text-lg font-medium text-gray-600">Passenger Name</label>
           <input
             id="passengerName"
+            name="passengerName" 
             type="text"
             placeholder="Passenger Name"
             value={ticketDetails.passengerName}
@@ -59,9 +61,10 @@ const PrintTrainTicketPage = () => {
           />
         </div>
         <div>
-          <label className="block text-lg font-medium text-gray-600" >Train Number</label>
+          <label className="block text-lg font-medium text-gray-600">Train Number</label>
           <input
             id="trainNumber"
+            name="trainNumber"
             type="text"
             placeholder="Train Number"
             value={ticketDetails.trainNumber}
@@ -73,6 +76,7 @@ const PrintTrainTicketPage = () => {
           <label className="block text-lg font-medium text-gray-600">Date</label>
           <input
             id="date"
+            name="date" 
             type="date"
             value={ticketDetails.date}
             onChange={handleChange}

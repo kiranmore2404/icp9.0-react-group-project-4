@@ -5,7 +5,7 @@ import Background from "../../assets/images/bg1.jpg";
 
 export default function Booking() {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams(); 
+  const [searchParams] = useSearchParams();
 
   const trainData = {
     "Express Train": {
@@ -33,11 +33,14 @@ export default function Booking() {
 
   const [formData, setFormData] = useState({
     passengername: "",
+    age: "",
+    gender: "",
+    idProof: "",
     from: "",
     to: "",
     date: "",
     passengers: 1,
-    class: "Economy",
+    seatPreference: "",
   });
 
   useEffect(() => {
@@ -46,35 +49,35 @@ export default function Booking() {
     const to = searchParams.get("to") || "";
     const rawPrice = searchParams.get("price");
     const price = rawPrice ? parseFloat(rawPrice.replace(/[^0-9.]/g, "")) : 0;
-  
+
     if (train && trainData[train]) {
       setSelectedTrain(train);
       setAvailableStations(trainData[train].stations);
       setPriceList(trainData[train].prices);
     }
-  
+
     setFormData((prev) => ({
       ...prev,
       from: from || prev.from,
       to: to || prev.to,
     }));
-  
-    setTotalPrice(price);
-  }, [searchParams]); 
 
-  const handleTrainChange = (e) => {
-    const train = e.target.value;
-    setSelectedTrain(train);
-    setAvailableStations(trainData[train]?.stations || []);
-    setPriceList(trainData[train]?.prices || {});
-    setFormData((prev) => ({ ...prev, from: "", to: "" })); 
-  };
+    setTotalPrice(price);
+  }, [searchParams]);
 
   useEffect(() => {
     const routeKey = `${formData.from}-${formData.to}`;
     const routePrice = priceList[routeKey] || 0;
     setTotalPrice(routePrice * formData.passengers);
   }, [formData.from, formData.to, formData.passengers]);
+
+  const handleTrainChange = (e) => {
+    const train = e.target.value;
+    setSelectedTrain(train);
+    setAvailableStations(trainData[train]?.stations || []);
+    setPriceList(trainData[train]?.prices || {});
+    setFormData((prev) => ({ ...prev, from: "", to: "" }));
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -83,6 +86,10 @@ export default function Booking() {
       [name]: value,
       ...(name === "from" ? { to: "" } : {}),
     }));
+  };
+
+  const generateBookingID = () => {
+    return `BOOK-${Math.floor(Math.random() * 1000000)}`;
   };
 
   const handleSubmit = (e) => {
@@ -95,7 +102,14 @@ export default function Booking() {
       toast.error("Please select both From and To stations.");
       return;
     }
-    navigate("/payment", { state: { price: totalPrice } });
+
+    const bookingID = generateBookingID();
+    const bookingDetails = { ...formData, bookingID, totalPrice };
+
+    localStorage.setItem("bookingDetails", JSON.stringify(bookingDetails));
+    toast.success("Booking Successful!");
+
+    navigate("/payment", { state: { price: totalPrice, bookingID } });
   };
 
   return (
@@ -103,11 +117,53 @@ export default function Booking() {
       className="min-h-screen flex items-center justify-center bg-cover bg-center"
       style={{ backgroundImage: `url(${Background})` }}
     >
-      <div className="md:w-120 lg:w-120 w-80 mx-auto bg-slate-300 p-6 md:m-10 md:mt-25 md:mb-10 mt-20 mb-10 rounded-lg shadow-lg border border-gray-300">
+      <div className="md:w-120 lg:w-120 w-80 mx-auto bg-slate-300 p-6 md:m-10 md:mt-25 md:mb-10 mt-20 mb-10 rounded-lg shadow-lg border border-gray-300 overflow-y-auto max-h-150 faqs-container">
         <h2 className="md:text-3xl text-2xl font-bold mb-4 text-center text-green-700">
           BOOK TICKET
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
+        <h3 className="text-xl text-green-800 font-semibold">Personal Details:</h3>
+        <div>
+          <label className="block font-medium text-gray-700">Name</label>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} required
+            className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700" />
+        </div>
+
+        <div>
+          <label className="block font-medium text-gray-700">Age</label>
+          <input type="number" name="age" value={formData.age} onChange={handleChange} required
+            className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700" />
+        </div>
+
+        <div>
+          <label className="block font-medium text-gray-700">Gender</label>
+          <select name="gender" value={formData.gender} onChange={handleChange} required
+            className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700">
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block font-medium text-gray-700">ID Proof(Aadhar Number)</label>
+          <input type="text" name="idProof" value={formData.idProof} onChange={handleChange} required
+            className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700" />
+        </div>
+
+        <h3 className="text-xl text-green-800 font-semibold">Train Booking Deatils:</h3>
+        <div>
+          <label className="block font-medium text-gray-700">Seat Preference</label>
+          <select name="seatPreference" value={formData.seatPreference} onChange={handleChange} required
+            className="w-full p-2 border rounded-md text-gray-700">
+            <option value="">Select</option>
+            <option value="Window">Window</option>
+            <option value="Aisle">Aisle</option>
+            <option value="No Preference">No Preference</option>
+          </select>
+        </div>
+
           <div>
             <label className="block font-medium text-gray-700">Select Train</label>
             <select
@@ -123,18 +179,6 @@ export default function Booking() {
                 </option>
               ))}
             </select>
-          </div>
-
-          <div>
-            <label className="block font-medium text-gray-700">Passenger Name</label>
-            <input
-              type="text"
-              name="passengername"
-              value={formData.passengername}
-              onChange={handleChange}
-              required
-              className="w-full p-2 border border-gray-500 outline-none focus:border-green-500 rounded-md text-gray-700"
-            />
           </div>
 
           <div>

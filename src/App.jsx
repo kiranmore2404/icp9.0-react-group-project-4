@@ -7,7 +7,6 @@ import PNRStatus from './views/Pnrstatus/pnr';
 import TrainExplorer from "./views/Train/TrainExplorer";
 import TrainSchedule from "./views/Train/TrainSchedule";
 import Booking from "./views/Booking/Booking";
-import PassengerDetails from "./views/Booking/PassengerDetail";
 import Payment from "./views/Booking/Payment";
 import About from './views/About/About';
 import PrintTrainTicketPage from './views/Train/PrintTrainTickit';
@@ -30,7 +29,6 @@ const App = () => {
         <Route path="/pnr-status" element={<PNRStatus />} />
         <Route path="/train-schedules" element={<TrainSchedule />} />
         <Route path="/booking" element={<Booking />} />
-        <Route path="/passenger-details" element={<PassengerDetails />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/about" element={<About />} />
         <Route path="/print-train-ticket" element={<PrintTrainTicketPage />} />
