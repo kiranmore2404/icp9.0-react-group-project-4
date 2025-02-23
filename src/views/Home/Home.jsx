@@ -1,4 +1,7 @@
+
 import Coursel from "../../components/coursole";
+import TrainFareTicketFareSection from "../../components/trainFair";
+
 
 const destinations = [
   {
@@ -45,10 +48,12 @@ const destinations = [
   },
 ];
 
+
+
 const DestinationCard = ({ destination }) => {
   return (
     <a href={destination.url} target="_blank" rel="noopener noreferrer" className="block">
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 w-72 h-48 mb-8">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 w-full sm:w-72 h-48 mb-8">
         <img
           src={destination.imageUrl}
           alt={destination.name}
@@ -74,9 +79,7 @@ const WelcomeSection = () => {
         <p className="text-base md:text-lg lg:text-xl mb-6">
           Your one-stop solution for all your travel needs. Plan, book, and manage your trips with ease.
         </p>
-        <button className="bg-white text-green-500 font-semibold py-2 px-4 rounded hover:bg-gray-200 transition-colors">
-          Get Started
-        </button>
+    
       </div>
     </section>
   );
@@ -84,7 +87,7 @@ const WelcomeSection = () => {
 
 const AboutSection = () => {
   return (
-    <section className="bg-gray-100 py-12 ">
+    <section className="bg-gray-100 py-12 mt-12">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold mb-4">About Track and Go</h2>
         <p className="text-gray-700 mb-6">
@@ -103,9 +106,15 @@ const AboutSection = () => {
 
 const Home = () => {
   return (
-    <div className="font-poppins">
-      <WelcomeSection />
+    <div className="font-poppins bg-gray-50">
+
+ <WelcomeSection />
+      <img src="/src/components/coursole/main-image.webp" alt="image" />
       <Coursel className="mb-12" />
+
+      <div>
+          <TrainFareTicketFareSection />
+        </div>
       <div className="container mx-auto p-4 mb-12">
         <h1 className="text-3xl font-semibold mb-4">Popular Destinations</h1>
         <div className="flex flex-wrap justify-around -mx-4 -mb-4">

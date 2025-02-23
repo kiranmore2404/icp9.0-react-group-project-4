@@ -3,34 +3,19 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const carouselItems = [
   {
-    img: "./coursole/refund.webp",
-    title: "Instant & full refunds",
-    highlight: "with Assured",
-    bgColor: "bg-blue-100",
+    img: "/src/components/coursole/Refund.webp",
   },
   {
-    img: "/coursol/free-cancellation.webp",
-    title: "Free-Cancilation",
-    highlight: "fare alerts",
-    bgColor: "bg-yellow-100",
+    img: "/src/components/coursole/free-Cancilation.webp",
   },
   {
-    img: "/coursole/IRCTC-train.webp",
-    title: "Track train delays,",
-    highlight: "boarding gate & baggage belt",
-    bgColor: "bg-purple-100",
+    img: "/src/components/coursole/IRCTC-partner.webp",
   },
   {
-    img: "./coursole/customer-support.webp",
-    title: "24x7",
-    highlight: "customer support",
-    bgColor: "bg-orange-100",
+    img: "/src/components/coursole/customer-support.jpg",
   },
   {
-    img: "/coursole/lowest-fares.webp",
-    title: "Lowest fares",
-    highlight: "with Track & Go",
-    bgColor: "bg-pink-100",
+    img: "/src/components/coursole/Lowest-fair.webp",
   },
 ];
 
@@ -52,8 +37,8 @@ function Carousel() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center py-6">
-      <h2 className="text-2xl font-bold mb-6 text-gray-800">Why Book With Track and Go?</h2>
+    <div className="w-full flex flex-col items-center py-3">
+      <h2 className="text-xl font-bold mb-3 text-gray-800">Why Book With Track and Go?</h2>
       <div className="relative w-full max-w-5xl overflow-hidden">
         {/* Carousel Items */}
         <div
@@ -63,33 +48,30 @@ function Carousel() {
           {carouselItems.map((item, index) => (
             <div
               key={index}
-              className={`flex flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-6 ${item.bgColor} rounded-xl shadow-lg flex-col items-center justify-center text-center mx-2`}
+              className="flex flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-3 rounded-xl shadow-lg mx-1"
             >
-              <img src={item.img} alt="icon" className="w-16 h-16 mb-3" />
-              <p className="text-base font-medium text-gray-700">
-                {item.title} <span className="font-bold text-gray-900">{item.highlight}</span>
-              </p>
+              <img src={item.img} alt="icon" className="w-full h-auto object-contain" />
             </div>
           ))}
         </div>
       </div>
 
       {/* Navigation Buttons */}
-      <div className="flex mt-6 space-x-6">
-        <button onClick={prevSlide} className="p-3 bg-gray-300 rounded-full hover:bg-gray-400 transition">
-          <ChevronLeft size={24} />
+      <div className="flex mt-3 space-x-3">
+        <button onClick={prevSlide} className="p-1.5 bg-gray-300 rounded-full hover:bg-gray-400 transition">
+          <ChevronLeft size={16} />
         </button>
-        <button onClick={nextSlide} className="p-3 bg-gray-300 rounded-full hover:bg-gray-400 transition">
-          <ChevronRight size={24} />
+        <button onClick={nextSlide} className="p-1.5 bg-gray-300 rounded-full hover:bg-gray-400 transition">
+          <ChevronRight size={16} />
         </button>
       </div>
 
       {/* Dots Navigation */}
-      <div className="flex mt-4 space-x-2">
+      <div className="flex mt-2 space-x-1">
         {carouselItems.map((_, index) => (
           <div
             key={index}
-            className={`w-3 h-3 rounded-full ${index === currentIndex ? "bg-gray-800" : "bg-gray-400"} transition`}
+            className={`w-2 h-2 rounded-full ${index === currentIndex ? "bg-gray-800" : "bg-gray-400"} transition`}
           ></div>
         ))}
       </div>
