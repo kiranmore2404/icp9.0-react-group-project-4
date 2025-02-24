@@ -1,6 +1,7 @@
 import Coursel from "../../components/coursole";
-import TrainFareTicketFareSection from "../../components/trainFair";
-import AccountManagement from "../../components/instruction";
+import { useNavigate } from "react-router";
+// import TrainFareTicketFareSection from "../../components/trainFair";
+import Background from "../../assets/images/bg12.webp";
 
 const destinations = [
   {
@@ -45,12 +46,19 @@ const destinations = [
     imageUrl: "https://media.cntraveller.in/wp-content/uploads/2019/04/Hyderabad-Lead-1366x768.jpg",
     url: "https://hyderabadexpert.com/top-10-must-visit-tourist-places-in-hyderabad/",
   },
+  {
+    name: "Mahabaleshwar",
+    state: "Mahabaleshwar",
+    properties: 1328,
+    imageUrl: "https://hotel.hardrock.com/goa/files/6021/23578312_ImageLargeWidth.jpg",
+    url: "https://www.tourmyindia.com/blog/top-places-must-visit-goa/",
+  }
 ];
 
 const DestinationCard = ({ destination }) => {
   return (
     <a href={destination.url} target="_blank" rel="noopener noreferrer" className="block">
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 w-full sm:w-72 h-48 mb-8">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 w-full sm:w-72 h-58 mb-8">
         <img
           src={destination.imageUrl}
           alt={destination.name}
@@ -67,25 +75,39 @@ const DestinationCard = ({ destination }) => {
 };
 
 const WelcomeSection = () => {
+  const navigate = useNavigate();
   return (
-    <section className="bg-green-500 text-white py-12 md:py-16 lg:py-20 mb-12">
-      <div className="container mx-auto px-4 text-center">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+    <div
+          className="relative min-h-screen flex flex-col items-center justify-center bg-cover bg-center"
+          style={{ backgroundImage: `url(${Background})` }}
+      >
+      <div className="bg-transparent backdrop-blur-lg text-white py-10 md:py-10 mb-12 rounded-xl">
+      <div className="container mx-auto text-center px-8">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 italic">
           Welcome to Track and Go
         </h1>
         <p className="text-base md:text-lg lg:text-xl mb-6">
           Your one-stop solution for all your travel needs. Plan, book, and manage your trips with ease.
         </p>
+        <div className="mt-5">
+            <button 
+              className="py-2 px-8 border-2 rounded-lg border-slate-200 text-lg font-bold cursor-pointer hover:text-green-400 hover:border-green-400"
+              onClick={() => navigate("/login")}
+            >
+              Get Started
+            </button>
+        </div>
       </div>
-    </section>
+    </div>
+    </div>
   );
 };
 
 const AboutSection = () => {
   return (
-    <section className="bg-gray-100 py-12 mt-12">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold mb-4">About Track and Go</h2>
+    <section className="bg-gray-100 py-10 mt-10">
+      <div className="container mx-auto px-4 text-center w-[85%]">
+        <h2 className="text-3xl font-bold mb-10 text-green-700">About Track and Go</h2>
         <p className="text-gray-700 mb-6">
           Launched in 2007, Track and Go is a technology company focused on empowering Indian travellers to plan, book, and manage their trips across rail, air, buses, and hotels. We assist travellers in making smarter travel decisions by leveraging artificial intelligence, machine learning, and data science-led innovations on our OTA platforms, comprising our websites and mobile applications.
         </p>
@@ -104,18 +126,13 @@ const Home = () => {
   return (
     <div className="font-poppins bg-gray-50">
       <WelcomeSection />
-      <div className="container mx-auto px-4 mb-12">
-        <img src="/src/components/coursole/main-image.webp" alt="image" className="w-full h-auto object-cover rounded-lg shadow-lg mb-8" />
-      </div>
+      
       <Coursel className="mb-12" />
-      <div className="container mx-auto px-4 mb-12">
-        <AccountManagement />
-      </div>
-      <div className="container mx-auto px-4 mb-12">
+      {/* <div className="container mx-auto px-4 mb-12">
         <TrainFareTicketFareSection />
-      </div>
-      <div className="container mx-auto p-4 mb-12">
-        <h1 className="text-3xl font-semibold mb-4">Popular Destinations</h1>
+      </div> */}
+      <div className="container mx-auto p-4 mb-12 w-[85%]">
+        <h1 className="text-3xl font-bold mb-10 text-green-700 text-center">Popular Destinations</h1>
         <div className="flex flex-wrap justify-around -mx-4 -mb-4">
           {destinations.map((destination) => (
             <DestinationCard key={destination.name} destination={destination} />

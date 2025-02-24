@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import refund from "../assets/images/coursole/Refund.webp";
+import freeCancellation from "../assets/images/coursole/free-Cancilation.webp";
+import irctc from "../assets/images/coursole/IRCTC-partner.webp";
+import support from "../assets/images/coursole/customer-support.jpg";
+import lowestFair from "../assets/images/coursole/Lowest-fair.webp";
 
 const carouselItems = [
-  { img: "/src/components/coursole/Refund.webp" },
-  { img: "/src/components/coursole/free-Cancilation.webp" },
-  { img: "/src/components/coursole/IRCTC-partner.webp" },
-  { img: "/src/components/coursole/customer-support.jpg" },
-  { img: "/src/components/coursole/Lowest-fair.webp" },
+  { img: refund },
+  { img: freeCancellation },
+  { img: irctc },
+  { img: support },
+  { img: lowestFair },
 ];
 
 function Carousel() {
@@ -20,16 +25,15 @@ function Carousel() {
     setCurrentIndex((prev) => (prev === carouselItems.length - 1 ? 0 : prev + 1));
   };
 
-  // Auto-slide feature using useEffect
   useEffect(() => {
     const interval = setInterval(nextSlide, 3000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center py-3">
-      <h2 className="text-xl font-bold mb-3 text-gray-800">Why Book With Track and Go?</h2>
-      <div className="relative w-full max-w-5xl overflow-hidden">
+    <div className="w-full flex flex-col items-center py-3 my-10">
+      <h2 className="text-3xl font-bold mb-5 text-green-700">Why Book With Track and Go?</h2>
+      <div className="relative w-[85%] overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -39,7 +43,7 @@ function Carousel() {
               key={index}
               className="flex flex-shrink-0 w-full p-3 rounded-xl shadow-lg flex-col items-center justify-center text-center mx-1"
             >
-              <div className="w-full h-32 flex items-center justify-center mb-1.5">
+              <div className="w-full h-42 flex items-center justify-center mb-1.5">
                 <img src={item.img} alt="icon" className="w-4/5 h-4/5 object-contain" />
               </div>
             </div>

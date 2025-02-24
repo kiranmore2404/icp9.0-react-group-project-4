@@ -38,11 +38,11 @@ const TicketFareSection = () => {
   ];
 
   return (
-    <section className="bg-gray-50 py-12 mb-12">
+    <section className="bg-gray-50 py-10 mb-10">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-6 text-center">Ticket Fare</h2>
+        <h2 className="text-3xl font-bold mb-10 text-center text-green-700">Ticket Fare</h2>
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white">
+          <table className="w-[85%] bg-white mx-auto">
             <thead>
               <tr className="bg-gray-50">
                 <th className="py-2 px-4 text-left">Travel Class</th>
