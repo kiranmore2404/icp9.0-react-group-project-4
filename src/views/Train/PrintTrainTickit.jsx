@@ -1,22 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import toast, { Toaster } from "react-hot-toast";
-import Background from "../../assets/images/bg12.webp";
 
 const PrintTrainTicketPage = () => {
-  const ticketRef = useRef();
-  const [ticketDetails, setTicketDetails] = useState({
-    bookingID: "",
-    name: "",
-    age: "",
-    gender: "",
-    from: "",
-    to: "",
-    date: "",
-    passengers: "",
-    seatPreference: "",
-    totalPrice: "",
-  });
+  const ticketRef = useRef(null); 
+  const [ticketDetails, setTicketDetails] = useState(null); 
 
   const generateRandomTrainNumber = () => {
     return Math.floor(10000 + Math.random() * 90000); 
@@ -26,10 +14,9 @@ const PrintTrainTicketPage = () => {
     const storedTicket = localStorage.getItem("bookingDetails");
     if (storedTicket) {
       const parsedTicket = JSON.parse(storedTicket);
-
       setTicketDetails({
         ...parsedTicket,
-        trainNumber: generateRandomTrainNumber(), 
+        trainNumber: generateRandomTrainNumber(),
       });
     } else {
       toast.error("No ticket data found. Please book a ticket first.");
@@ -38,23 +25,27 @@ const PrintTrainTicketPage = () => {
 
   const handlePrint = useReactToPrint({
     content: () => ticketRef.current,
+    documentTitle: `Train_Ticket_${ticketDetails?.bookingID || "Unknown"}`, 
+    onBeforeGetContent: () => {
+      if (!ticketRef.current) {
+        toast.error("No ticket content to print!");
+        return null;
+      }
+    },
   });
 
   return (
-    <div
-      className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: `url(${Background})` }}
-    >
-      <div className="md:w-120 w-80 mx-auto p-6 bg-slate-300 rounded-lg shadow-lg">
-        <h1 className="md:text-3xl text-2xl font-bold text-center text-green-700 mb-6">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+      <div className="w-96 p-6 bg-white rounded-lg shadow-lg">
+        <h1 className="text-2xl font-bold text-center text-green-700 mb-6">
           Print Train Ticket
         </h1>
 
-        {ticketDetails.bookingID ? (
-          <div ref={ticketRef} className="p-4 bg-white rounded-lg shadow-lg border border-gray-400">
+        {ticketDetails ? (
+          <div ref={ticketRef} className="p-4 bg-gray-200 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold text-center mb-4">Train Ticket</h2>
             <p><strong>Booking ID:</strong> {ticketDetails.bookingID}</p>
-            <p><strong>Passenger Name:</strong> {ticketDetails.name}</p>
+            <p><strong>Name:</strong> {ticketDetails.name}</p>
             <p><strong>Age:</strong> {ticketDetails.age}</p>
             <p><strong>Gender:</strong> {ticketDetails.gender}</p>
             <p><strong>ID Proof:</strong> {ticketDetails.idProof}</p>
@@ -63,6 +54,7 @@ const PrintTrainTicketPage = () => {
             <p><strong>Date:</strong> {ticketDetails.date}</p>
             <p><strong>Passengers:</strong> {ticketDetails.passengers}</p>
             <p><strong>Seat Preference:</strong> {ticketDetails.seatPreference}</p>
+            <p><strong>Train Number:</strong> {ticketDetails.trainNumber}</p>
             <p><strong>Total Price:</strong> ₹{ticketDetails.totalPrice}</p>
           </div>
         ) : (
@@ -72,8 +64,9 @@ const PrintTrainTicketPage = () => {
         <button
           onClick={handlePrint}
           className="w-full py-2 mt-5 bg-green-600 text-white text-lg font-bold rounded-lg hover:bg-green-700 transition duration-200"
+          disabled={!ticketDetails} 
         >
-          Print Ticket
+          Download Ticket as PDF
         </button>
       </div>
       <Toaster />
