@@ -31,8 +31,8 @@ function Carousel() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center py-3 my-10">
-      <h2 className="text-3xl font-bold mb-5 text-green-700">Why Book With Track and Go?</h2>
+    <div className="w-full flex flex-col items-center py-3 md:my-10 my-5">
+      <h2 className="md:text-3xl text-xl font-bold mb-5 text-green-700">Why Book With Track and Go?</h2>
       <div className="relative w-[85%] overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-in-out"
