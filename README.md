@@ -54,8 +54,6 @@ TrackGo is a train tracking and ticket booking system that provides users with r
         <sub><b>Aman Singh</b></sub>
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center">
       <a href="https://github.com/Arpitakharde">
         <img src="https://github.com/Arpitakharde.png" width="100px;" alt="Arpita Kharde"/>
