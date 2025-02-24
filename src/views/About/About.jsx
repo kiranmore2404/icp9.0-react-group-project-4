@@ -1,41 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import Background from "../../assets/images/bg7.jpg";
+import languageInfo from "../../config/languageInfo";
 
 const About = () => {
+  const [language, setLanguage] = useState("en");
+
   return (
     <div
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${Background})`,
-        }}  
+      className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+      style={{ backgroundImage: `url(${Background})` }}
     >
-    <div className="w-[80%] flex items-center justify-center mt-20">
-      <div className="w-[90%] bg-white shadow-lg rounded-lg p-8 border border-gray-300">
-        <h1 className="text-4xl font-bold text-green-700 text-center mb-6">About TrackGo</h1>
-        <p className="text-gray-700 text-lg mb-4">
-          Welcome to <span className="font-bold">TrackGo</span>, your one-stop solution for seamless and convenient train ticket booking.
-          We are committed to making travel easy, efficient, and hassle-free for our users.
-        </p>
-        <p className="text-gray-700 text-lg mb-4">
-          Our platform allows users to search for trains, check availability, compare fares, and book tickets all in one place.
-          With a user-friendly interface and secure payment options, TrackGo ensures a smooth travel planning experience.
-        </p>
-        <h2 className="text-2xl font-semibold text-green-600 mt-6">Why Choose TrackGo?</h2>
-        <ul className="list-disc list-inside text-gray-700 text-lg mt-2">
-          <li>Easy and quick train ticket booking</li>
-          <li>Real-time train availability and fare comparison</li>
-          <li>Secure and seamless payment options</li>
-          <li>User-friendly and responsive interface</li>
-          <li>24/7 customer support</li>
-        </ul>
-        <p className="text-gray-700 text-lg mt-6">
-          Whether you're planning a business trip or a family vacation, TrackGo makes your journey stress-free and enjoyable.
-        </p>
-        <p className="text-center text-green-700 text-lg font-semibold mt-6">
-          Travel smart. Travel easy. Travel with TrackGo!
-        </p>
+      <div className="md:w-[80%] w-full flex items-center justify-center md:mt-20 mt-25">
+        <div className="w-[90%] bg-white shadow-lg rounded-lg p-8 border border-gray-300">
+          <div className="flex justify-end mb-4">
+            <select
+              className="p-2 border border-gray-400 rounded px-2 md:text-lg text-sm"
+              onChange={(e) => setLanguage(e.target.value)}
+              value={language}
+            >
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+              <option value="mr">मराठी</option>
+            </select>
+          </div>
+
+          <h1 className="md:text-3xl text-2xl font-bold text-green-700 text-center md:mb-6 mb-3">
+            {languageInfo.translations[language].title}
+          </h1>
+          <p className="text-gray-700 md:text-lg text-sm text-justify md:mb-4 mb-2">
+            {languageInfo.translations[language].description}
+          </p>
+          <h2 className="md:text-2xl text-lg font-semibold text-green-600 mt-6">
+            {languageInfo.translations[language].whyChoose}
+          </h2>
+          <ul className="list-disc list-inside text-gray-700 md:text-lg text-sm mt-2">
+            {languageInfo.translations[language].features.map((feature, index) => (
+              <li key={index}>{feature}</li>
+            ))}
+          </ul>
+          <p className="text-center text-green-700 md:text-lg text-sm font-semibold mt-6">
+            {languageInfo.translations[language].slogan}
+          </p>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
