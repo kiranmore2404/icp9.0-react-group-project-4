@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [travelHistory, setTravelHistory] = useState([]);
 
   useEffect(() => {
-    
+ 
     const fetchData = async () => {
       const user = { name: 'Kiran More', favoriteDestinations: ['Paris', 'Tokyo', 'New York'] };
       setUserData(user);

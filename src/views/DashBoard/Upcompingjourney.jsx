@@ -1,6 +1,6 @@
 
 const UpcomingJourneys = () => {
-    // Placeholder upcoming journeys data
+  
     const upcomingJourneys = [
       { destination: 'Paris', date: '2025-04-01' },
       { destination: 'Tokyo', date: '2025-05-15' },
@@ -11,7 +11,7 @@ const UpcomingJourneys = () => {
         <h2 className="text-xl font-semibold text-gray-800">Upcoming Journeys</h2>
         <ul className="mt-4 space-y-2">
           {upcomingJourneys.map((journey, index) => (
-            <li key={index} className="flex justify-between text-gray-600">
+            <li key={index} className="flex justify-between text-green-600">
               <span>{journey.destination}</span> 
               <span>{journey.date}</span>
             </li>

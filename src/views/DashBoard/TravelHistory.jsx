@@ -14,13 +14,13 @@ const TravelHistory = ({ history }) => {
       <input
         type="text"
         placeholder="Filter by destination"
-        className="mt-4 w-full p-2 border rounded-md border-gray-300"
+        className="mt-4 w-full p-2 border rounded-md bg-green-600"
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
       />
       <ul className="mt-4 space-y-2">
         {filteredHistory.map((journey, index) => (
-          <li key={index} className="flex justify-between text-gray-600">
+          <li key={index} className="flex justify-between text-green-400">
             <span>{journey.destination}</span>
             <span>{journey.date}</span>
           </li>
