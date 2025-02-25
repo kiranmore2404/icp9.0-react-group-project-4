@@ -61,6 +61,8 @@ const Navbar = () => {
             )}
           </div>
 
+          <NavLink to="/dashboard" className="hover:text-white flex items-center text-[22px] hover:bg-green-500 py-1 px-3 rounded-xl">Dashboard</NavLink>
+
           <div className="relative">
             <button onClick={() => toggleDropdown("login")} className="hover:text-white flex items-center text-[22px] hover:bg-green-500 py-1 px-3 rounded-xl">
               Login <ChevronDown className="ml-1" />
@@ -110,6 +112,8 @@ const Navbar = () => {
           </div>
 
           <NavLink to="/pnr-status" className="hover:text-white" onClick={() => setMobileMenu(false)}>PNR Status</NavLink>
+
+          <NavLink to="/dashboard" className="hover:text-white" onClick={() => setMobileMenu(false)}>Dashboard</NavLink>
 
           <div className="relative">
             <button onClick={() => toggleDropdown("supportMobile")} className="hover:text-white flex items-center">

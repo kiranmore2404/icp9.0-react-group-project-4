@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import UpcomingJourneys from './UpcomingJourneys';
+import UpcomingJourneys from './Upcompingjourney';
 import TravelHistory from './TravelHistory';
-import PersonalizedRecommendations from './PersonalizedRecommendations';
+import PersonalizedRecommendations from './Persnalized';
 
 const Dashboard = () => {
   const [userData, setUserData] = useState(null);

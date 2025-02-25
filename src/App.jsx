@@ -16,7 +16,8 @@ import ContactPage from './views/Contact/Contact';
 import Login from './views/Authentication/Login';
 import Register from './views/Authentication/Register';
 import Forgotpassword from './views/Authentication/Forgotpassword';
-import TrainDetails from './views/Train/TrainDetails'
+import TrainDetails from './views/Train/TrainDetails';
+import Dashboard from './views/DashBoard/DashBoard';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/cancel-train-ticket" element={<CancelTrainTicketPage />} />
         <Route path="/support" element={<Support />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<Forgotpassword />} />
